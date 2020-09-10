@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "QuickSalesDB": "Server=(localdb)\\MSSQLLocalDB;Database=QuickSalesDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}
