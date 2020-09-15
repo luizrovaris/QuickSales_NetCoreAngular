@@ -6,7 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using QuickSales.Domain.Contracts;
 using QuickSales.Repository.Context;
+using QuickSales.Repository.Repositories;
 
 namespace QuickSales.Web
 {
@@ -24,7 +26,12 @@ namespace QuickSales.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddCors();
             services.AddDbContext<QuickSalesContext>(opt => opt.UseLazyLoadingProxies().UseMySql(this.Configuration.GetConnectionString("QuickSalesDB"), m => m.MigrationsAssembly("QuickSales.Repository")));
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
