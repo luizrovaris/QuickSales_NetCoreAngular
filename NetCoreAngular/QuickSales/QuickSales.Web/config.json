@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "QuickSalesDB": "Server=(localdb)\\MSSQLLocalDB;Database=QuickSalesDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+    "QuickSalesDB": "server=quicksalesdb.xctca1u8xkjbw.us-east-2.rds.amazonaws.com;port=3306;database=quicksalesdb;user=admin;password=NiceTry"
   }
 }
