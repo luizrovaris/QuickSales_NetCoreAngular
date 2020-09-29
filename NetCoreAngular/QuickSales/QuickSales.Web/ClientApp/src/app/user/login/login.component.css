@@ -18,3 +18,8 @@
     padding: 10px;
     font-size: 16px;
 }
+
+.form-logo{
+    width: 90%;
+    max-width: 380px;
+}
