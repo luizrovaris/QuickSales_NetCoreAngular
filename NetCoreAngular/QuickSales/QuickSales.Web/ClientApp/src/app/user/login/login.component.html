@@ -2,12 +2,28 @@
   <form class="form-signin">
     <p class="h4 mb-2">User Login</p>
     <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" class="form-control mb-2" id="inputEmail" name="email" placeholder="Enter your email" [(ngModel)]="user.email" />
+    <input type="email" class="form-control mb-2" id="inputEmail" name="email"
+           placeholder="Enter your email" [(ngModel)]="user.email" #email="ngModel" email required/>
+    <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">
+        E-mail is required
+      </div>
+      <div *ngIf="email.errors.email">
+        E-mail invalid
+      </div>
+    </div>
 
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" class="form-control mb-3" id="inputPassword" name="password" placeholder="Enter your password" [(ngModel)]="user.password" />
+    <input type="password" class="form-control mb-3" id="inputPassword"
+           name="password" placeholder="Enter your password" [(ngModel)]="user.password"
+           #password="ngModel" required />
+    <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.errors.required">
+        Password is required
+      </div>
+    </div>
 
     <button class="btn btn-primary btn-block mb-2" type="submit" (click)="login()">Enter</button>
-    <img class="form-logo" src="../../../assets/img/logo.jpg" />
+    <img class="form-logo" src="../../../assets/img/logo.jpeg" />
   </form>
 </div>
