@@ -9,8 +9,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-//import { ProductComponent } from './product/product.component';
+import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './user/login/login.component';
+import { RouteGuards } from './authorization/route.guards';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { LoginComponent } from './user/login/login.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    //ProductComponent,
+    ProductComponent,
     LoginComponent
   ],
   imports: [
@@ -30,7 +31,7 @@ import { LoginComponent } from './user/login/login.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      //{ path: 'product', component: ProductComponent },
+      { path: 'product', component: ProductComponent, canActivate: [RouteGuards]},
       { path: 'login', component: LoginComponent}
     ])
   ],
