@@ -20,6 +20,6 @@ export class UserService {
       password: user.password
     };
 
-    return this.http.post<User>(this.baseUrl + "api/user", body, { headers: header });
+    return this.http.post<User>(this.baseUrl + "api/user/login", body, { headers: header });
   }
 }

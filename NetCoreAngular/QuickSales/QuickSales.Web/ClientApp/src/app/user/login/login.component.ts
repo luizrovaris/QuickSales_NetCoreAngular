@@ -11,6 +11,7 @@ import { UserService } from "../../services/user/user.service";
 export class LoginComponent implements OnInit {
   public user;
   public returnUrl: string;
+  public message: string;
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute, private userService: UserService) {
   }
@@ -23,10 +24,21 @@ export class LoginComponent implements OnInit {
     this.userService.checkUser(this.user)
       .subscribe(
         data => {
+          var user: User;
+          user = data;
 
+          sessionStorage.setItem('authenticated-user', '1');
+          sessionStorage.setItem('user-mail', user.email);
+
+          if (this.returnUrl == null) {
+            this.router.navigate(['/']);
+          } else {
+            this.router.navigate([this.returnUrl]);
+          }
         },
         err => {
-
+          console.log(err.error);
+          this.message = err.error;
         }
       );
   }

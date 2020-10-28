@@ -29,6 +29,9 @@
     </div>
 
     <button class="btn btn-primary btn-block mb-2" type="submit" (click)="login()">Enter</button>
+    <div class="alert alert-danger" *ngIf="message">
+      {{message}}
+    </div>
     <img class="form-logo" src="../../../assets/img/logo.jpeg" />
   </form>
 </div>
