@@ -21,7 +21,7 @@ namespace QuickSales.Web.Controllers
                 }
                 else
                 {
-                    result = BadRequest("Login invalid");
+                    result = BadRequest("Invalid login");
                 }
             }
             catch (Exception ex)
