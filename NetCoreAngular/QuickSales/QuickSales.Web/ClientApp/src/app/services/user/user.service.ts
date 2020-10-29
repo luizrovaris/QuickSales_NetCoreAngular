@@ -9,6 +9,26 @@ import { User } from "../../model/user";
 export class UserService {
 
   private baseUrl: string;
+  private _user: User;
+  get user(): User {
+    let user_json = sessionStorage.getItem('authenticated-user');
+    this._user = JSON.parse(user_json);
+    return this._user;
+  }
+  set user(user: User) {
+    sessionStorage.setItem('authenticated-user', JSON.stringify(user));
+    this._user = user;
+  }
+
+  public hasAuthenticatedUser() : boolean {
+    return this._user != null;
+  }
+
+  public clearSession() {
+    sessionStorage.setItem('authenticated-user', '');
+    this._user = null;
+  }
+
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.baseUrl = baseUrl;
   }
