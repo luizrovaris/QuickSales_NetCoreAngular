@@ -23,12 +23,9 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.userService.checkUser(this.user)
       .subscribe(
-        data => {
-          var user: User;
-          user = data;
+        user_json => {
+          this.userService.user = user_json;
 
-          sessionStorage.setItem('authenticated-user', '1');
-          sessionStorage.setItem('user-mail', user.email);
 
           if (this.returnUrl == null) {
             this.router.navigate(['/']);
