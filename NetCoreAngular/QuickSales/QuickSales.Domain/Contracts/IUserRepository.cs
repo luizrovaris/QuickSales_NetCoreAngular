@@ -5,5 +5,6 @@ namespace QuickSales.Domain.Contracts
 {
     public interface IUserRepository : IBaseRepository<User>
     {
+        User Login(string email, string password);
     }
 }

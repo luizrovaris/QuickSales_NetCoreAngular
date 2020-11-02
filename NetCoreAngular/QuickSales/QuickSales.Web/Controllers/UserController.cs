@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QuickSales.Domain.Contracts;
 using QuickSales.Domain.Entities;
 using System;
 
@@ -8,6 +9,13 @@ namespace QuickSales.Web.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IUserRepository userRepository;
+
+        public UserController(IUserRepository userRepository)
+        {
+            this.userRepository = userRepository;
+        }
+
         [HttpPost("login")]
         public ActionResult Login([FromBody] User user)
         {
@@ -15,9 +23,11 @@ namespace QuickSales.Web.Controllers
 
             try
             {
-                if (user.Email == "lr@mail.com" && user.Password == "1234")
+                User userResult = this.userRepository.Login(user.Email, user.Password);
+
+                if (userResult != null)
                 {
-                    result = Ok(user);
+                    result = Ok(userResult);
                 }
                 else
                 {
