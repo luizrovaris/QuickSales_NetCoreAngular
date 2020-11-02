@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "QuickSalesDB": "server=quicksalesdb.xctca1u8xkjbw.us-east-2.rds.amazonaws.com;port=3306;database=quicksalesdb;user=admin;password=NiceTry"
+    "QuickSalesDB": "server=remotemysql.com;port=3306;database=ZEMYt2jT3S;user=ZEMYt2jT3S;password=NiceTry"
   }
 }

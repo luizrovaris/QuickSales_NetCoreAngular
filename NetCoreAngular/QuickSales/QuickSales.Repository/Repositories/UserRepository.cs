@@ -2,6 +2,7 @@
 using QuickSales.Domain.Entities;
 using QuickSales.Repository.Context;
 using QuickSales.Repository.Repositories.Base;
+using System.Linq;
 
 namespace QuickSales.Repository.Repositories
 {
@@ -10,6 +11,11 @@ namespace QuickSales.Repository.Repositories
         public UserRepository(QuickSalesContext quickSalesContext) 
             : base(quickSalesContext)
         {
+        }
+
+        public User Login(string email, string password)
+        {
+            return this.QuickSalesContext.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
         }
     }
 }

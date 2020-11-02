@@ -31,6 +31,7 @@ namespace QuickSales.Web
             services.AddDbContext<QuickSalesContext>(opt => opt.UseLazyLoadingProxies().UseMySql(this.Configuration.GetConnectionString("QuickSalesDB"), m => m.MigrationsAssembly("QuickSales.Repository")));
 
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
