@@ -42,4 +42,16 @@ export class UserService {
 
     return this.http.post<User>(this.baseUrl + "api/user/login", body, { headers: header });
   }
+
+  public saveUser(user: User) : Observable<User> {
+    const header = new HttpHeaders().set('content-type', 'application/json');
+    var body = {
+      email: user.email,
+      password: user.password,
+      firstName: user.firstName,
+      lastName: user.lastName
+    };
+
+    return this.http.post<User>(this.baseUrl + "api/user/save", body, { headers: header });
+  }
 }
