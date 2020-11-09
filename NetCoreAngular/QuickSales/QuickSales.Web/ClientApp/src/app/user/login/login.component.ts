@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
         user_json => {
           this.userService.user = user_json;
 
-
           if (this.returnUrl == null) {
             this.router.navigate(['/']);
           } else {
