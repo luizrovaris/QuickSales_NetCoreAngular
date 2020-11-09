@@ -17,7 +17,15 @@ export class RegisterUserComponent implements OnInit {
     this.user = new User();
   }
 
-  public register() {
-    this.userService.saveUser(this.user);
+  public save() {
+    this.userService.saveUser(this.user)
+      .subscribe(
+        userJson => {
+
+        },
+        err => {
+
+        }
+      );
   }
 }
