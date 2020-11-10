@@ -32,7 +32,7 @@
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="activateSpinner"></span>
       Login
     </button>
-    <div>Don't have an account <a [routerLink='["/register-user"]']>Create your account</a></div>
+    <div>Don't have an account <a [routerLink]='["/register-user"]'>Create your account</a></div>
     <div class="alert alert-danger" *ngIf="message">
       {{message}}
     </div>
