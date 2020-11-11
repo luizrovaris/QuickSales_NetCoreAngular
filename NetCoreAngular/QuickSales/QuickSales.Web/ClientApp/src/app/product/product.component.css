@@ -2,3 +2,7 @@
 {
     color: #668;
 }
+
+.invalid-feedback, .valid-feedback{
+    display: block;
+}
