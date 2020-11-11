@@ -32,10 +32,10 @@
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="activateSpinner"></span>
       Login
     </button>
-    <div>Don't have an account <a [routerLink]='["/register-user"]'>Create your account</a></div>
+    <div class="mb-2">Don't have an account <a [routerLink]='["/register-user"]'>Create your account</a></div>
     <div class="alert alert-danger" *ngIf="message">
       {{message}}
     </div>
-    <img class="form-logo" src="../../../assets/img/logo.jpeg" />
+    <img class="form-logo rounded" src="../../../assets/img/logo.jpeg" />
   </form>
 </div>
