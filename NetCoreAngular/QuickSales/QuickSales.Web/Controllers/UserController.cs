@@ -23,7 +23,7 @@ namespace QuickSales.Web.Controllers
 
             try
             {
-                User userResult = this.userRepository.Login(user.Email, user.Password);
+                User userResult = this.userRepository.Get(user.Email, user.Password);
 
                 if (userResult != null)
                 {
@@ -32,6 +32,33 @@ namespace QuickSales.Web.Controllers
                 else
                 {
                     result = BadRequest("Invalid login");
+                }
+            }
+            catch (Exception ex)
+            {
+                result = BadRequest(ex);
+            }
+
+            return result;
+        }
+
+        [HttpPost]
+        public ActionResult Post([FromBody] User user)
+        {
+            ActionResult result;
+
+            try
+            {
+                User userResult = this.userRepository.Get(user.Email);
+
+                if (userResult != null)
+                {
+                    result = BadRequest("User already exists");
+                }
+                else
+                {
+                    this.userRepository.Add(user);
+                    result = Ok(user);
                 }
             }
             catch (Exception ex)
