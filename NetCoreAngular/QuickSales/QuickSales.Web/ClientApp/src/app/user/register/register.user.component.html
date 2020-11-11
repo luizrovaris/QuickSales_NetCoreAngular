@@ -61,5 +61,8 @@
     <div class="alert alert-danger" *ngIf="message">
       {{message}}
     </div>
+    <div class="alert alert-success" *ngIf="userSaved">
+      User saved! <a class="alert-link" [routerLink]='["/login"]'> Go to login.</a>
+    </div>
   </form>
 </div>

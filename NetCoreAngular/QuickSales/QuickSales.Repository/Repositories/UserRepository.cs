@@ -13,9 +13,14 @@ namespace QuickSales.Repository.Repositories
         {
         }
 
-        public User Login(string email, string password)
+        public User Get(string email, string password)
         {
             return this.QuickSalesContext.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
+        }
+
+        public User Get(string email)
+        {
+            return this.QuickSalesContext.Users.FirstOrDefault(x => x.Email == email);
         }
     }
 }
