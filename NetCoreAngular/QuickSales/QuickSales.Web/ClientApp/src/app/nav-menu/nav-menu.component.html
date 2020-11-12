@@ -25,8 +25,12 @@
           <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="!hasAuthenticatedUser()">
             <a class="nav-link text-dark" [routerLink]="['/login']">Login</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="hasAuthenticatedUser()">
-            <a class="nav-link text-dark" [routerLink]="['/logout']" (click)="logout()">Logout</a>
+          <li class="nav-item dropdown" *ngIf="hasAuthenticatedUser()">
+            <a class="nav-link text-dark dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"
+               id="linkMenu" data-toggle="dropdown" href="#">{{user.firstName}} {{user.lastName}}</a>
+            <ul class="dropdown-menu" aria-labelledby="linkMenu">
+              <li class="dropdown-item" role="menu" [routerLink]="['/logout']" (click)="logout()">Logout</li>
+            </ul>
           </li>
         </ul>
       </div>
