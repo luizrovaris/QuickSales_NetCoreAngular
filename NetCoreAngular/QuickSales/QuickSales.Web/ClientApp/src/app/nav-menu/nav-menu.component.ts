@@ -11,7 +11,10 @@ export class NavMenuComponent {
   isExpanded = false;
 
   constructor(private route: Router, private userService: UserService) {
+  }
 
+  get user() {
+    return this.userService.user;
   }
 
   collapse() {
