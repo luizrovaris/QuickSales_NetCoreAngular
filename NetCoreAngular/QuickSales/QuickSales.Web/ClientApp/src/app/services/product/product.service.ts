@@ -36,4 +36,10 @@ export class ProductService implements OnInit {
   public get(productId: number): Observable<Product> {
     return this.http.get<Product>(this.baseUrl + "api/product/" + productId, { headers: this.header });
   }
+
+  public sendFile(selectedFile: File): Observable<boolean> {
+    const formData: FormData = new FormData();
+    formData.append('selectedFile', selectedFile, selectedFile.name);
+    return this.http.post<boolean>(this.baseUrl + 'api/product/file', formData, { headers: this.header });
+  }
 }
