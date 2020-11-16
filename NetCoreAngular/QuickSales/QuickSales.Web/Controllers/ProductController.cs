@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using QuickSales.Domain.Contracts;
 using QuickSales.Domain.Entities;
 using System;
@@ -10,9 +11,11 @@ namespace QuickSales.Web.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository productRepository;
-        public ProductController(IProductRepository productRepository)
+        private readonly IHttpContextAccessor httpContextAccessor;
+        public ProductController(IProductRepository productRepository, IHttpContextAccessor httpContextAccessor)
         {
             this.productRepository = productRepository;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
