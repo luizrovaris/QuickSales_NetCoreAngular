@@ -9,6 +9,7 @@ import { Product } from "../model/product";
 })
 export class ProductComponent implements OnInit {
   public product: Product;
+  public selectedFile: File;
 
   constructor(private productService: ProductService) {
 
@@ -27,5 +28,16 @@ export class ProductComponent implements OnInit {
 
         }
       );
+  }
+
+  public inputChange(files: FileList) {
+    this.selectedFile = files.item(0);
+    this.productService.sendFile(this.selectedFile)
+      .subscribe(
+        response => {
+        },
+        e => {
+          console.log(e.error)
+        });
   }
 }
