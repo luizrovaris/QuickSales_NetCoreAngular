@@ -59,8 +59,8 @@ namespace QuickSales.Web.Controllers
             return result;
         }
 
-        [HttpPost("sendFile")]
-        public IActionResult SendFile([FromBody]Product product)
+        [HttpPost("file")]
+        public IActionResult SendFile()
         {
             ObjectResult result;
 
@@ -68,7 +68,7 @@ namespace QuickSales.Web.Controllers
             {
                 IFormFile selectedFormFile = this.httpContextAccessor.HttpContext.Request.Form.Files["selectedFile"];
 
-                string newName = Guid.NewGuid().ToString().Replace("-", "") + "." + Path.GetExtension(selectedFormFile.FileName);
+                string newName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(selectedFormFile.FileName);
                 string path = this.hostingEnvironment.WebRootPath + "\\files\\";
 
                 using (var streamFile = new FileStream(path + newName, FileMode.Create))

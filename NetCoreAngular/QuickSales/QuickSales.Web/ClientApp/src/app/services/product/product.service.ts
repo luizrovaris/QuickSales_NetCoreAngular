@@ -40,6 +40,6 @@ export class ProductService implements OnInit {
   public sendFile(selectedFile: File): Observable<boolean> {
     const formData: FormData = new FormData();
     formData.append('selectedFile', selectedFile, selectedFile.name);
-    return this.http.post<boolean>(this.baseUrl + 'api/product/file', formData, { headers: this.header });
+    return this.http.post<boolean>(this.baseUrl + 'api/product/file', formData);
   }
 }
