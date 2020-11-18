@@ -10,6 +10,7 @@ import { Product } from "../model/product";
 export class ProductComponent implements OnInit {
   public product: Product;
   public selectedFile: File;
+  public activateSpinner: boolean;
 
   constructor(private productService: ProductService) {
 
@@ -32,12 +33,17 @@ export class ProductComponent implements OnInit {
 
   public inputChange(files: FileList) {
     this.selectedFile = files.item(0);
+    this.activateSpinner = true;
+
     this.productService.sendFile(this.selectedFile)
       .subscribe(
-        response => {
+        fileName => {
+          this.product.file = fileName;
+          this.activateSpinner = false;
         },
         e => {
           console.log(e.error)
+          this.activateSpinner = false;
         });
   }
 }
