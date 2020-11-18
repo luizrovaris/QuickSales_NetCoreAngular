@@ -26,7 +26,7 @@ namespace QuickSales.Web.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            ObjectResult result;
+            ActionResult result;
 
             try
             {
@@ -44,7 +44,7 @@ namespace QuickSales.Web.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Product product)
         {
-            ObjectResult result;
+            ActionResult result;
 
             try
             {
@@ -62,7 +62,7 @@ namespace QuickSales.Web.Controllers
         [HttpPost("file")]
         public IActionResult SendFile()
         {
-            ObjectResult result;
+            ActionResult result;
 
             try
             {
@@ -76,7 +76,7 @@ namespace QuickSales.Web.Controllers
                     selectedFormFile.CopyTo(streamFile);
                 }
 
-                return Ok();
+                result = Json(newName);
             }
             catch (Exception ex)
             {
