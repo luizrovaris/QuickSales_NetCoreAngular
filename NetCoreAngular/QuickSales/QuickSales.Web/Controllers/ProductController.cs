@@ -15,12 +15,12 @@ namespace QuickSales.Web.Controllers
     {
         private readonly IProductRepository productRepository;
         private readonly IHttpContextAccessor httpContextAccessor;
-        private readonly IHostingEnvironment hostingEnvironment; 
-        public ProductController(IProductRepository productRepository, IHttpContextAccessor httpContextAccessor, IHostingEnvironment hostingEnvironment)
+        private readonly IWebHostEnvironment webHostEnvironment;
+        public ProductController(IProductRepository productRepository, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment webHostEnvironment)
         {
             this.productRepository = productRepository;
             this.httpContextAccessor = httpContextAccessor;
-            this.hostingEnvironment = hostingEnvironment;
+            this.webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -69,7 +69,7 @@ namespace QuickSales.Web.Controllers
                 IFormFile selectedFormFile = this.httpContextAccessor.HttpContext.Request.Form.Files["selectedFile"];
 
                 string newName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(selectedFormFile.FileName);
-                string path = this.hostingEnvironment.WebRootPath + "\\files\\";
+                string path = this.webHostEnvironment.WebRootPath + "\\files\\";
 
                 using (var streamFile = new FileStream(path + newName, FileMode.Create))
                 {
