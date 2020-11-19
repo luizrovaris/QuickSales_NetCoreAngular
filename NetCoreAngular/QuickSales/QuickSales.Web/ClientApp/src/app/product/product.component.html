@@ -3,8 +3,8 @@
 <input type="text" id="inputName" name="productName" placeholder="Product's name"
        class="form-control mb-2 col-md-4" [(ngModel)]="product.name" #name="ngModel"
        [ngClass]="{
-           'is-invalid': email.invalid && (email.dirty || email.touched),
-           'is-valid': email.valid}"
+           'is-invalid': name.invalid && (name.dirty || name.touched),
+           'is-valid': name.valid}"
        required />
 <div class="invalid-feedback mb-2" *ngIf="name.invalid && (name.dirty || name.touched)">
   <div *ngIf="name.errors.required">
@@ -16,8 +16,8 @@
 <input type="text" id="inputDescription" name="productDescription" placeholder="Product's description"
        class="form-control mb-2 col-md-4" [(ngModel)]="product.description" #description="ngModel"
        [ngClass]="{
-           'is-invalid': email.invalid && (email.dirty || email.touched),
-           'is-valid': email.valid}"
+           'is-invalid': description.invalid && (description.dirty || description.touched),
+           'is-valid': description.valid}"
        required />
 <div class="invalid-feedback mb-2" *ngIf="description.invalid && (description.dirty || description.touched)">
   <div *ngIf="description.errors.required">
@@ -29,8 +29,8 @@
 <input type="number" id="inputPrice" name="productPrice" placeholder="Price"
        class="form-control mb-2 col-md-4" [(ngModel)]="product.price" #price="ngModel"
        [ngClass]="{
-           'is-invalid': email.invalid && (email.dirty || email.touched),
-           'is-valid': email.valid}"
+           'is-invalid': price.invalid && (price.dirty || price.touched),
+           'is-valid': price.valid}"
        required />
 <div class="invalid-feedback mb-2" *ngIf="price.invalid && (price.dirty || price.touched)">
   <div *ngIf="price.errors.required">
