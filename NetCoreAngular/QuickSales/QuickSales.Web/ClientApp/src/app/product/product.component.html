@@ -1,51 +1,59 @@
-<h1 class="h4 title">Product</h1>
-<label for="inputName" class="sr-only">Name</label>
-<input type="text" id="inputName" name="productName" placeholder="Product's name"
-       class="form-control mb-2 col-md-4" [(ngModel)]="product.name" #name="ngModel"
-       [ngClass]="{
+<form class="form-control">
+  <h1 class="h4 title">Product</h1>
+  <label for="inputName" class="sr-only">Name</label>
+  <input type="text" id="inputName" name="productName" placeholder="Product's name"
+         class="form-control mb-2 col-md-4" [(ngModel)]="product.name" #name="ngModel"
+         [ngClass]="{
            'is-invalid': name.invalid && (name.dirty || name.touched),
-           'is-valid': name.valid}"
-       required />
-<div class="invalid-feedback mb-2" *ngIf="name.invalid && (name.dirty || name.touched)">
-  <div *ngIf="name.errors.required">
-    Name is required
+           'is-valid': name.valid
+         }"
+         required />
+  <div class="invalid-feedback mb-2" *ngIf="name.invalid && (name.dirty || name.touched)">
+    <div *ngIf="name.errors.required">
+      Name is required
+    </div>
   </div>
-</div>
 
-<label for="inputDescription" class="sr-only">Description</label>
-<input type="text" id="inputDescription" name="productDescription" placeholder="Product's description"
-       class="form-control mb-2 col-md-4" [(ngModel)]="product.description" #description="ngModel"
-       [ngClass]="{
+  <label for="inputDescription" class="sr-only">Description</label>
+  <input type="text" id="inputDescription" name="productDescription" placeholder="Product's description"
+         class="form-control mb-2 col-md-4" [(ngModel)]="product.description" #description="ngModel"
+         [ngClass]="{
            'is-invalid': description.invalid && (description.dirty || description.touched),
-           'is-valid': description.valid}"
-       required />
-<div class="invalid-feedback mb-2" *ngIf="description.invalid && (description.dirty || description.touched)">
-  <div *ngIf="description.errors.required">
-    Description is required
+           'is-valid': description.valid
+         }"
+         required />
+  <div class="invalid-feedback mb-2" *ngIf="description.invalid && (description.dirty || description.touched)">
+    <div *ngIf="description.errors.required">
+      Description is required
+    </div>
   </div>
-</div>
 
-<label for="inputPrice" class="sr-only">Price</label>
-<input type="number" id="inputPrice" name="productPrice" placeholder="Price"
-       class="form-control mb-2 col-md-4" [(ngModel)]="product.price" #price="ngModel"
-       [ngClass]="{
+  <label for="inputPrice" class="sr-only">Price</label>
+  <input type="number" id="inputPrice" name="productPrice" placeholder="Price"
+         class="form-control mb-2 col-md-4" [(ngModel)]="product.price" #price="ngModel"
+         [ngClass]="{
            'is-invalid': price.invalid && (price.dirty || price.touched),
-           'is-valid': price.valid}"
-       required />
-<div class="invalid-feedback mb-2" *ngIf="price.invalid && (price.dirty || price.touched)">
-  <div *ngIf="price.errors.required">
-    Price is required
+           'is-valid': price.valid
+         }"
+         required />
+  <div class="invalid-feedback mb-2" *ngIf="price.invalid && (price.dirty || price.touched)">
+    <div *ngIf="price.errors.required">
+      Price is required
+    </div>
   </div>
-</div>
 
-<div class="input-group">
-  <div class="custom-file mb-2 col-md-4">
-    <input type="file" class="custom-file-input" id="inputFile" (change)="inputChange($event.target.files)" />
-    <label for="inputFile" class="custom-file-label">Choose a photo </label>
+  <div class="input-group">
+    <div class="custom-file mb-2 col-md-4">
+      <input type="file" class="custom-file-input" id="inputFile" (change)="inputChange($event.target.files)" />
+      <label for="inputFile" class="custom-file-label">Choose a photo </label>
+    </div>
   </div>
-</div>
 
-<button class="btn btn-primary" (click)="save()" [disabled]="activateSpinner">
-  <span class="spinner-border spinner-border-sm" *ngIf="activateSpinner"></span>
-  Save
-</button>
+  <button class="btn btn-primary mb-2" (click)="save()" [disabled]="activateSpinner">
+    <span class="spinner-border spinner-border-sm" *ngIf="activateSpinner"></span>
+    Save
+  </button>
+  <div class="alert alert-danger col-md-4" *ngIf="message">
+    {{message}}
+  </div>
+</form>
