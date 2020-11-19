@@ -6,7 +6,6 @@ using QuickSales.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace QuickSales.Web.Controllers
 {
@@ -48,8 +47,17 @@ namespace QuickSales.Web.Controllers
 
             try
             {
-                productRepository.Add(product);
-                result = Created("api/product", product);
+                product.Validate();
+
+                if (product.IsValid)
+                {
+                    productRepository.Add(product);
+                    result = Created("api/product", product);
+                }
+                else
+                {
+                    result = BadRequest(product.GetMessages());
+                }
             }
             catch (Exception ex)
             {
