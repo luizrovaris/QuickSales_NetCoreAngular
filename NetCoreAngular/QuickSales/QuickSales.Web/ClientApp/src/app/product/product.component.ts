@@ -11,6 +11,7 @@ export class ProductComponent implements OnInit {
   public product: Product;
   public selectedFile: File;
   public activateSpinner: boolean;
+  public message: string;
 
   constructor(private productService: ProductService) {
 
@@ -20,13 +21,15 @@ export class ProductComponent implements OnInit {
   }
 
   public save() {
+    this.activateSpinner = true;
     this.productService.save(this.product)
       .subscribe(
         productJson => {
-
+          this.activateSpinner = false;
         },
-        err => {
-
+        e => {
+          this.message = e.error;
+          this.activateSpinner = false;
         }
       );
   }
