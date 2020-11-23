@@ -16,6 +16,7 @@ namespace QuickSales.Repository.Config
                 .IsRequired()
                 .HasMaxLength(400);
             builder.Property(p => p.Price)
+                .HasColumnType("decimal(19,4)")
                 .IsRequired();
         }
     }
