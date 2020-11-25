@@ -1,4 +1,25 @@
+<p class="h4 mb-2">Products Search</p>
 <p *ngIf="!products">Loading...</p>
-<div *ngFor="let p of products">
-  {{p.name}} || {{p.description}} || {{p.price}}
-</div>
+
+<button class="btn btn-primary mb-2" (click)="addProduct()">Add</button>
+
+<table class="table table-hover" *ngIf="products">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{p.name}}</td>
+      <td>{{p.description}}</td>
+      <td>{{p.price}}</td>
+      <td><img class="img-grid" src="../../../../../files/{{p.file}}" /></td>
+      <td><a href="#">Edit</a><a href="#">Remove</a></td>
+    </tr>
+  </tbody>
+</table>

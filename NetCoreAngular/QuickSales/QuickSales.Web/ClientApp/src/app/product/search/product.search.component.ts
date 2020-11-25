@@ -28,4 +28,8 @@ export class ProductSearchComponent implements OnInit {
         }
       );
   }
+
+  public addProduct() {
+
+  }
 }
