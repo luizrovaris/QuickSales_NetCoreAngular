@@ -1,0 +1,4 @@
+<p *ngIf="!products">Loading...</p>
+<div *ngFor="let p of products">
+  {{p.name}} || {{p.description}} || {{p.price}}
+</div>

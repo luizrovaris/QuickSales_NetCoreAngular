@@ -29,8 +29,7 @@ namespace QuickSales.Web.Controllers
 
             try
             {
-                //result = Ok(productRepository.GetAll());
-                result = Ok(new List<Product>(){ new Product() { Name = "PRD1", Id = 1, Price= 19.99m }, new Product() { Name = "PRD2", Id = 2, Price = 15.45m } });
+                result = Json(productRepository.GetAll());
             }
             catch (Exception ex)
             {
