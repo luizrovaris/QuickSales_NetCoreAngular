@@ -33,7 +33,8 @@ import { ProductSearchComponent } from './product/search/product.search.componen
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'product', component: ProductComponent, canActivate: [RouteGuards]},
       { path: 'login', component: LoginComponent },
-      { path: 'register-user', component: RegisterUserComponent }
+      { path: 'register-user', component: RegisterUserComponent },
+      { path: 'product-search', component: ProductSearchComponent }
     ])
   ],
   providers: [UserService, ProductService],
