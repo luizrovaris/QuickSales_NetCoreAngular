@@ -2,24 +2,25 @@
 <p *ngIf="!products">Loading...</p>
 
 <button class="btn btn-primary mb-2" (click)="addProduct()">Add</button>
-
-<table class="table table-hover" *ngIf="products">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Image</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of products">
-      <td>{{p.name}}</td>
-      <td>{{p.description}}</td>
-      <td>{{p.price}}</td>
-      <td><img class="img-grid" src="../../../../../files/{{p.file}}" /></td>
-      <td><a href="#">Edit</a><a href="#">Remove</a></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <table class="table table-hover" *ngIf="products">
+    <thead>
+      <tr class="d-flex">
+        <th class="col-3">Name</th>
+        <th class="col-5">Description</th>
+        <th class="col-1">Price</th>
+        <th class="col-2">Image</th>
+        <th class="col-1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="d-flex" *ngFor="let p of products">
+        <td class="col-3">{{p.name}}</td>
+        <td class="col-5">{{p.description}}</td>
+        <td class="col-1">{{p.price}}</td>
+        <td class="col-2"><img class="img-fluid img-grid" src="../../../../../files/{{p.file}}" /></td>
+        <td class="col-1"><a href="#">Edit</a><a href="#">Remove</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
