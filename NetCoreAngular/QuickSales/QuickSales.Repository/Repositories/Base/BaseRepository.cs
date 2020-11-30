@@ -37,8 +37,10 @@ namespace QuickSales.Repository.Repositories.Base
             QuickSalesContext.SaveChanges();
         }
 
-        public void Delete(TEntity entity)
+        public void Delete(int id)
         {
+            TEntity entity = this.GetEntityById(id);
+
             QuickSalesContext.Set<TEntity>().Remove(entity);
             QuickSalesContext.SaveChanges();
         }

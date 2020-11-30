@@ -11,6 +11,6 @@ namespace QuickSales.Domain.Contracts.Base
         TEntity GetEntityById(int id);
         IEnumerable<TEntity> GetAll();
         void Update(TEntity entity);
-        void Delete(TEntity entity);
+        void Delete(int id);
     }
 }
