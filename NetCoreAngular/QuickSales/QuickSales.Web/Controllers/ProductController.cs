@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using QuickSales.Domain.Contracts;
 using QuickSales.Domain.Entities;
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace QuickSales.Web.Controllers

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Product } from "../../model/product";
 import { ProductService } from "../../services/product/product.service";
 
@@ -10,7 +11,7 @@ import { ProductService } from "../../services/product/product.service";
 export class ProductSearchComponent implements OnInit {
   public products: Product[];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
     this.getAllProducts();
   }
 
@@ -30,6 +31,6 @@ export class ProductSearchComponent implements OnInit {
   }
 
   public addProduct() {
-
+    this.router.navigate(['/product']);
   }
 }
