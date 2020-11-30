@@ -34,7 +34,7 @@ import { ProductSearchComponent } from './product/search/product.search.componen
       { path: 'product', component: ProductComponent, canActivate: [RouteGuards]},
       { path: 'login', component: LoginComponent },
       { path: 'register-user', component: RegisterUserComponent },
-      { path: 'product-search', component: ProductSearchComponent }
+      { path: 'product-search', component: ProductSearchComponent, canActivate: [RouteGuards] }
     ])
   ],
   providers: [UserService, ProductService],
