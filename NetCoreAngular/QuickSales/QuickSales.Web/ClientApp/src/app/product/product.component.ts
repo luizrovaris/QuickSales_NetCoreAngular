@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { ProductService } from "../services/product/product.service";
 import { Product } from "../model/product";
 
@@ -13,7 +14,7 @@ export class ProductComponent implements OnInit {
   public activateSpinner: boolean;
   public message: string;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class ProductComponent implements OnInit {
       .subscribe(
         productJson => {
           this.activateSpinner = false;
+          this.router.navigate(['/product-search']);
         },
         e => {
           this.message = e.error;
