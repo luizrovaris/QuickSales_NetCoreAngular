@@ -33,4 +33,17 @@ export class ProductSearchComponent implements OnInit {
   public addProduct() {
     this.router.navigate(['/product']);
   }
+
+  public removeProduct(productId: number) {
+    if (confirm("Are you sure you want to permanently delete this product?") == true) {
+      this.productService.delete(productId).subscribe(
+        products => {
+          this.products = products;
+        },
+        e => {
+          console.log(e.error);
+        }
+      );
+    }
+  }
 }

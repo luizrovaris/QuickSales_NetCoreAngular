@@ -28,7 +28,7 @@ namespace QuickSales.Web.Controllers
 
             try
             {
-                result = Json(productRepository.GetAll());
+                result = Json(this.productRepository.GetAll());
             }
             catch (Exception ex)
             {
@@ -49,13 +49,31 @@ namespace QuickSales.Web.Controllers
 
                 if (product.IsValid)
                 {
-                    productRepository.Add(product);
+                    this.productRepository.Add(product);
                     result = Created("api/product", product);
                 }
                 else
                 {
                     result = BadRequest(product.GetMessages());
                 }
+            }
+            catch (Exception ex)
+            {
+                result = BadRequest(ex);
+            }
+
+            return result;
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            ActionResult result;
+
+            try
+            {
+                this.productRepository.Delete(id);
+                result = Json(this.productRepository.GetAll());
             }
             catch (Exception ex)
             {

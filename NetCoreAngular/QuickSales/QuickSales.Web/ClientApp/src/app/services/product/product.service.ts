@@ -25,8 +25,8 @@ export class ProductService implements OnInit {
     return this.http.post<Product>(this.baseUrl + "api/product", JSON.stringify(product), { headers: this.header });
   }
 
-  public delete(product: Product) {
-    return this.http.delete<Product>(this.baseUrl + "api/product/" + product.id, { headers: this.header })
+  public delete(productId: number): Observable<Product[]> {
+    return this.http.delete<Product[]>(this.baseUrl + "api/product/" + productId);
   }
 
   public getAll() : Observable<Product[]> {
