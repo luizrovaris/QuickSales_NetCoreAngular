@@ -49,7 +49,15 @@ namespace QuickSales.Web.Controllers
 
                 if (product.IsValid)
                 {
+                    if (product.Id > 0)
+                    {
+                        this.productRepository.Update(product);
+                    }
+                    else
+                    {
                     this.productRepository.Add(product);
+                    }
+
                     result = Created("api/product", product);
                 }
                 else

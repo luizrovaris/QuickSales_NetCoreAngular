@@ -46,4 +46,9 @@ export class ProductSearchComponent implements OnInit {
       );
     }
   }
+
+  public editProduct(product: Product) {
+    sessionStorage.setItem('productEditSession', JSON.stringify(product));
+    this.router.navigate(['/product']);
+  }
 }
