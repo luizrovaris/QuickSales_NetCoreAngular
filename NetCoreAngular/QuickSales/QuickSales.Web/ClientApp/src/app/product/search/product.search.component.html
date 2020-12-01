@@ -21,7 +21,7 @@
         <td class="col-2"><img class="img-fluid img-grid" src="../../../../../files/{{p.file}}" /></td>
         <td class="col-2">
           <div class="btn-group">
-            <button class="btn btn-success btn-sm">Edit</button>
+            <button class="btn btn-success btn-sm" (click)="editProduct(p)">Edit</button>
             <button class="btn btn-danger btn-sm" (click)="removeProduct(p.id)">Remove</button>
           </div>
         </td>
