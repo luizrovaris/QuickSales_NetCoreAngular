@@ -49,10 +49,15 @@
     </div>
   </div>
 
-  <button class="btn btn-primary mb-2" (click)="save()" [disabled]="activateSpinner">
-    <span class="spinner-border spinner-border-sm" *ngIf="activateSpinner"></span>
-    Save
-  </button>
+  <div class="btn-group mb-2">
+    <button class="btn btn-primary" (click)="save()" [disabled]="activateSpinner">
+      <span class="spinner-border spinner-border-sm" *ngIf="activateSpinner"></span>
+      Save
+    </button>
+    <button class="btn btn-secondary" [routerLink]="['/product-search']">
+      Cancel
+    </button>
+  </div>
   <div class="alert alert-danger col-md-4" *ngIf="message">
     {{message}}
   </div>
