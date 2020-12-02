@@ -14,6 +14,7 @@ import { RouteGuards } from './authorization/route.guards';
 import { UserService } from './services/user/user.service';
 import { ProductService } from './services/product/product.service';
 import { ProductSearchComponent } from './product/search/product.search.component';
+import { StoreSearchComponent } from './store/search/store.search.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProductSearchComponent } from './product/search/product.search.componen
     ProductComponent,
     LoginComponent,
     RegisterUserComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    StoreSearchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
