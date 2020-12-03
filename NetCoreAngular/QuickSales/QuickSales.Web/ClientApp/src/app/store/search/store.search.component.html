@@ -1,3 +1,14 @@
-<div *ngFor="let p of products">
-  {{p.name}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-2 d-flex align-items-stretch" *ngFor="let p of products">
+      <div class="card">
+        <img class="card-img-top card-img-style" src="../../../../../files/{{p.file}}" />
+        <div class="card-body">
+          <h5 class="card-title">{{p.name}}</h5>
+          <div class="card-text">{{p.description}}</div>
+          <p class="h5">{{p.price}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
