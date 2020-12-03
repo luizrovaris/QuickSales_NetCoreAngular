@@ -1,2 +1,7 @@
-﻿body {
+.card-img-style {
+    width: 50%;
+}
+
+.card{
+    border: none;
 }
