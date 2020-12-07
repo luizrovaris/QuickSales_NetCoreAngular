@@ -21,10 +21,14 @@
            'is-invalid': description.invalid && (description.dirty || description.touched),
            'is-valid': description.valid
          }"
-         required />
+         required
+         minlength="50"/>
   <div class="invalid-feedback mb-2" *ngIf="description.invalid && (description.dirty || description.touched)">
     <div *ngIf="description.errors.required">
       Description is required
+    </div>
+    <div *ngIf="description.error.minlenght">
+      Description must have 50 characters
     </div>
   </div>
 
