@@ -1,4 +1,5 @@
-<div class="container">
+<div *ngIf="!products">Loading...</div>
+<div class="container" *ngIf="products">
   <div class="row">
     <div class="col-md-4 mb-2 d-flex align-items-stretch" *ngFor="let p of products">
       <div class="card">
