@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+//import { TruncateModule } from 'ng2-truncate'; //description | truncate: 50
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -15,6 +16,7 @@ import { UserService } from './services/user/user.service';
 import { ProductService } from './services/product/product.service';
 import { ProductSearchComponent } from './product/search/product.search.component';
 import { StoreSearchComponent } from './store/search/store.search.component';
+import { StoreProductComponent } from './store/product/store.product.component';
 
 @NgModule({
   declarations: [
@@ -25,18 +27,21 @@ import { StoreSearchComponent } from './store/search/store.search.component';
     LoginComponent,
     RegisterUserComponent,
     ProductSearchComponent,
-    StoreSearchComponent
+    StoreSearchComponent,
+    StoreProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    //TruncateModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'product', component: ProductComponent, canActivate: [RouteGuards]},
       { path: 'login', component: LoginComponent },
       { path: 'register-user', component: RegisterUserComponent },
       { path: 'product-search', component: ProductSearchComponent, canActivate: [RouteGuards] }
+      { path: 'store-product', component: StoreProductComponent}
     ])
   ],
   providers: [UserService, ProductService],
