@@ -20,10 +20,10 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     var productOnSession = sessionStorage.getItem('productEditSession');
     if (productOnSession === null) {
+      this.product = new Product();
+    } else {
       this.product = JSON.parse(productOnSession);
       sessionStorage.setItem('productEditSession', null);
-    } else {
-      this.product = new Product();
     }
   }
 
