@@ -36,6 +36,7 @@
     <None Remove="ClientApp\src\app\product\search\product.search.component.ts" />
     <None Remove="ClientApp\src\app\services\product\product.service.ts" />
     <None Remove="ClientApp\src\app\services\user\user.service.ts" />
+    <None Remove="ClientApp\src\app\store\product\store.product.component.ts" />
     <None Remove="ClientApp\src\app\store\search\store.search.component.ts" />
     <None Remove="ClientApp\src\app\user\login\login.component.ts" />
     <None Remove="ClientApp\src\app\user\register\register.user.component.ts" />
@@ -53,6 +54,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\product\search\product.search.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\product\product.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\user\user.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\product\store.product.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\search\store.search.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\user\login\login.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\user\register\register.user.component.ts" />
