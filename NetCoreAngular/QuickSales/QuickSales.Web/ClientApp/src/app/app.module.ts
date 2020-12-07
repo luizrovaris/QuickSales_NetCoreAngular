@@ -40,7 +40,7 @@ import { StoreProductComponent } from './store/product/store.product.component';
       { path: 'product', component: ProductComponent, canActivate: [RouteGuards]},
       { path: 'login', component: LoginComponent },
       { path: 'register-user', component: RegisterUserComponent },
-      { path: 'product-search', component: ProductSearchComponent, canActivate: [RouteGuards] }
+      { path: 'product-search', component: ProductSearchComponent, canActivate: [RouteGuards] },
       { path: 'store-product', component: StoreProductComponent}
     ])
   ],
