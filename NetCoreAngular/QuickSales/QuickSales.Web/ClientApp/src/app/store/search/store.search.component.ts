@@ -22,4 +22,8 @@ export class StoreSearchComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+
+  public openProductDetail(product: Product) {
+
+  }
 }

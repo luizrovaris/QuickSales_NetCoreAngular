@@ -5,3 +5,7 @@
 .card{
     border: none;
 }
+
+.card-link{
+    cursor: pointer;
+}
