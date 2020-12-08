@@ -17,6 +17,7 @@ import { ProductService } from './services/product/product.service';
 import { ProductSearchComponent } from './product/search/product.search.component';
 import { StoreSearchComponent } from './store/search/store.search.component';
 import { StoreProductComponent } from './store/product/store.product.component';
+import { StorePurchaseComponent } from './store/purchase/store.purchase.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StoreProductComponent } from './store/product/store.product.component';
     RegisterUserComponent,
     ProductSearchComponent,
     StoreSearchComponent,
-    StoreProductComponent
+    StoreProductComponent,
+    StorePurchaseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,7 +43,8 @@ import { StoreProductComponent } from './store/product/store.product.component';
       { path: 'login', component: LoginComponent },
       { path: 'register-user', component: RegisterUserComponent },
       { path: 'product-search', component: ProductSearchComponent, canActivate: [RouteGuards] },
-      { path: 'store-product', component: StoreProductComponent}
+      { path: 'store-product', component: StoreProductComponent },
+      { path: 'store-purchase', component: StorePurchaseComponent }
     ])
   ],
   providers: [UserService, ProductService],
