@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../services/product/product.service";
 import { Product } from "../../model/product";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-store",
@@ -10,7 +11,7 @@ import { Product } from "../../model/product";
 export class StoreSearchComponent implements OnInit {
   public products: Product[];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
     this.productService.getAll().subscribe(
       products => {
         this.products = products;
@@ -24,6 +25,8 @@ export class StoreSearchComponent implements OnInit {
   }
 
   public openProductDetail(product: Product) {
+    sessionStorage.setItem('productDetailSession', JSON.stringify(product));
 
+    this.router.navigate(['/store-product']);
   }
 }
