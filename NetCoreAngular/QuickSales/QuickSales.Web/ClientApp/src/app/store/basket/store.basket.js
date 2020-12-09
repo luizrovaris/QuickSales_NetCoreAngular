@@ -1,0 +1,27 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var StoreBasket = /** @class */ (function () {
+    function StoreBasket() {
+        this.products = [];
+    }
+    StoreBasket.prototype.addProduct = function (product) {
+        var productsLocalStorage = localStorage.getItem("productsLocalStorage");
+        if (productsLocalStorage) {
+            this.products = JSON.parse(productsLocalStorage);
+        }
+        this.products.push(product);
+        localStorage.setItem("productsLocalStorage", JSON.stringify(this.products));
+    };
+    StoreBasket.prototype.getProducts = function () {
+        var productsLocalStorage = localStorage.getItem("productsLocalStorage");
+        if (productsLocalStorage) {
+            this.products = JSON.parse(productsLocalStorage);
+        }
+        return this.products;
+    };
+    StoreBasket.prototype.deleteProduct = function (product) {
+    };
+    return StoreBasket;
+}());
+exports.StoreBasket = StoreBasket;
+//# sourceMappingURL=store.basket.js.map

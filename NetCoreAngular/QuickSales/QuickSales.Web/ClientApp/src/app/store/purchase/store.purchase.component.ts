@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { StoreBasket } from "../basket/store.basket";
+import { Product } from "../../model/product";
 
 @Component({
   selector: "store-purchase",
@@ -6,7 +8,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./store.purchase.component.css"]
 })
 export class StorePurchaseComponent implements OnInit {
+  public basket: StoreBasket;
+  public products: Product[];
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+    this.basket = new StoreBasket();
+    this.products = this.basket.getProducts();
+  }
 }
