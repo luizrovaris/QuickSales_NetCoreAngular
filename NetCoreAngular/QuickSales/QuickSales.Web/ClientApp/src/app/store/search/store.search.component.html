@@ -1,8 +1,8 @@
 <div *ngIf="!products">Loading...</div>
 <div class="container" *ngIf="products">
-  <div class="row">
-    <div class="col-md-4 mb-2 d-flex align-items-stretch" *ngFor="let p of products">
-      <a class="card-link" (click)="openProductDetail(p)">
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-4 d-flex align-items-stretch" *ngFor="let p of products">
+      <a class="card-link shadow-sm p-3 mb-5 bg-white rounded" (click)="openProductDetail(p)">
         <div class="card">
           <img class="card-img-top card-img-style" src="../../../../../files/{{p.file}}" />
           <div class="card-body">
