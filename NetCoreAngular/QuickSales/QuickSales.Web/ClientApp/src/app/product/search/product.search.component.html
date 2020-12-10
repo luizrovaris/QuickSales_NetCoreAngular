@@ -7,8 +7,8 @@
     <thead>
       <tr class="d-flex">
         <th class="col-2">Name</th>
-        <th class="col-5">Description</th>
-        <th class="col-1">Price</th>
+        <th class="col-4">Description</th>
+        <th class="col-2">Price</th>
         <th class="col-2">Image</th>
         <th class="col-2"></th>
       </tr>
@@ -16,8 +16,8 @@
     <tbody>
       <tr class="d-flex" *ngFor="let p of products">
         <td class="col-2">{{p.name}}</td>
-        <td class="col-5">{{p.description}}</td>
-        <td class="col-1">{{p.price}}</td>
+        <td class="col-4">{{p.description}}</td>
+        <td class="col-2">$ {{p.price | number:'1.2-2'}}</td>
         <td class="col-2"><img class="img-fluid img-grid" src="../../../../../files/{{p.file}}" /></td>
         <td class="col-2">
           <div class="btn-group">
