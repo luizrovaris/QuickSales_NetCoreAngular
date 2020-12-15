@@ -5,9 +5,10 @@
         <thead>
           <tr class="d-flex">
             <th class="col-2"></th>
-            <th class="col-5">Product</th>
+            <th class="col-4">Product</th>
             <th class="col-2">Quantity</th>
-            <th class="col-3">Price</th>
+            <th class="col-2">Price</th>
+            <th class="col-2"></th>
           </tr>
         </thead>
         <tbody>
@@ -15,9 +16,12 @@
             <td class="col-2">
               <img class="img-table-purchase" src="../../../../../files/{{p.file}}" />
             </td>
-            <td class="col-5">{{p.name}}</td>
-            <td class="col-2"><input type="number" class="form-control" value="1" (change)="updatePrice(p, $event.target.value)" /></td>
-            <td class="col-3">$ {{p.price}}</td>
+            <td class="col-4">{{p.name}}</td>
+            <td class="col-2">
+              <input type="number" class="form-control" value="1" (change)="updatePrice(p, $event.target.value)" [(ngModel)]="p.quantity" placeholder="1" />
+            </td>
+            <td class="col-2">$ {{p.price | number:'1.2-2'}}</td>
+            <td class="col-2"><button class="btn btn-secondary btn-sm" (click)="removeProduct(p)">Remove</button></td>
           </tr>
         </tbody>
       </table>

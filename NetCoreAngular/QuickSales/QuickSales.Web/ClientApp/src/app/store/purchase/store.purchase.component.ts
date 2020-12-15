@@ -18,10 +18,22 @@ export class StorePurchaseComponent implements OnInit {
 
   public updatePrice(product: Product, quantity: number) {
 
+    if (quantity <= 0) {
+      quantity = 1;
+      product.quantity = quantity;
+    }
+
     if (!product.priceIndividual) {
       product.priceIndividual = product.price;
     }
 
     product.price = product.priceIndividual * quantity;
+
+    this.basket.updateProducts(this.products);
+  }
+
+  public removeProduct(product: Product) {
+    this.basket.removeProduct(product);
+    this.products = this.basket.getProducts();
   }
 }

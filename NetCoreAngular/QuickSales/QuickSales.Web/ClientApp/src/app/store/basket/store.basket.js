@@ -12,6 +12,9 @@ var StoreBasket = /** @class */ (function () {
         this.products.push(product);
         localStorage.setItem("productsLocalStorage", JSON.stringify(this.products));
     };
+    StoreBasket.prototype.updateProducts = function (products) {
+        localStorage.setItem("productsLocalStorage", JSON.stringify(products));
+    };
     StoreBasket.prototype.getProducts = function () {
         var productsLocalStorage = localStorage.getItem("productsLocalStorage");
         if (productsLocalStorage) {
@@ -19,7 +22,12 @@ var StoreBasket = /** @class */ (function () {
         }
         return this.products;
     };
-    StoreBasket.prototype.deleteProduct = function (product) {
+    StoreBasket.prototype.removeProduct = function (product) {
+        var productsLocalStorage = localStorage.getItem("productsLocalStorage");
+        if (productsLocalStorage) {
+            this.products = JSON.parse(productsLocalStorage);
+            localStorage.setItem("productsLocalStorage", JSON.stringify(this.products.filter(function (p) { return p.id != product.id; })));
+        }
     };
     return StoreBasket;
 }());
