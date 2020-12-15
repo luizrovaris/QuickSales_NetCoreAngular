@@ -9,6 +9,7 @@ namespace QuickSales.Domain.Entities
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public bool IsAdministrator { get; set; }
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
 
         public override void Validate()
