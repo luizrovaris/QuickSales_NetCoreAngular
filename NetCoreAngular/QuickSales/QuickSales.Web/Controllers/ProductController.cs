@@ -55,7 +55,7 @@ namespace QuickSales.Web.Controllers
                     }
                     else
                     {
-                    this.productRepository.Add(product);
+                        this.productRepository.Add(product);
                     }
 
                     result = Created("api/product", product);
