@@ -14,6 +14,10 @@ export class StoreBasket {
     localStorage.setItem("productsLocalStorage", JSON.stringify(this.products));
   }
 
+  public updateProducts(products: Product[]) {
+    localStorage.setItem("productsLocalStorage", JSON.stringify(products));
+  }
+
   public getProducts(): Product[] {
     var productsLocalStorage = localStorage.getItem("productsLocalStorage");
 
@@ -24,7 +28,12 @@ export class StoreBasket {
     return this.products;
   }
 
-  public deleteProduct(product: Product) {
+  public removeProduct(product: Product) {
+    var productsLocalStorage = localStorage.getItem("productsLocalStorage");
 
+    if (productsLocalStorage) {
+      this.products = JSON.parse(productsLocalStorage)
+      localStorage.setItem("productsLocalStorage", JSON.stringify(this.products.filter(p => p.id != product.id)));
+    }
   }
 }
