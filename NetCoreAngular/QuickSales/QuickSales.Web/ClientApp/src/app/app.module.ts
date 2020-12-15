@@ -44,7 +44,7 @@ import { StorePurchaseComponent } from './store/purchase/store.purchase.componen
       { path: 'register-user', component: RegisterUserComponent },
       { path: 'product-search', component: ProductSearchComponent, canActivate: [RouteGuards] },
       { path: 'store-product', component: StoreProductComponent },
-      { path: 'store-purchase', component: StorePurchaseComponent }
+      { path: 'store-purchase', component: StorePurchaseComponent, canActivate: [RouteGuards] }
     ])
   ],
   providers: [UserService, ProductService],
