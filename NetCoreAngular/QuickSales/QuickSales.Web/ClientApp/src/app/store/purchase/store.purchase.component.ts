@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { StoreBasket } from "../basket/store.basket";
 import { Product } from "../../model/product";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "store-purchase",
@@ -12,6 +13,8 @@ export class StorePurchaseComponent implements OnInit {
   public products: Product[];
   public total: number;
 
+  constructor(private router: Router) {
+  }
   ngOnInit(): void {
     this.basket = new StoreBasket();
     this.products = this.basket.getProducts();
@@ -39,6 +42,10 @@ export class StorePurchaseComponent implements OnInit {
     this.basket.removeProduct(product);
     this.products = this.basket.getProducts();
     this.updateTotalPrice();
+
+    if (this.products.length < 1) {
+      this.router.navigate(["/"]);
+    }
   }
 
   public updateTotalPrice() {
