@@ -28,6 +28,10 @@ export class UserService {
     return this._user != null;
   }
 
+  public isAdminUser(): boolean {
+    return this.hasAuthenticatedUser() && this.user.isAdministrator;
+  }
+
   public clearSession() {
     sessionStorage.setItem('authenticated-user', '');
     this._user = null;
