@@ -29,6 +29,10 @@ export class NavMenuComponent {
     return this.userService.hasAuthenticatedUser();
   }
 
+  public isAdminUser() : boolean {
+    return this.userService.isAdminUser();
+  }
+
   public logout() {
     this.userService.clearSession();
     this.route.navigate(['/']);

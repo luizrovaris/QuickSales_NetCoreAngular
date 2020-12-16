@@ -19,7 +19,7 @@
               [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isAdminUser()">
             <a class="nav-link text-dark" [routerLink]="['/product-search']">Product</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="!hasAuthenticatedUser()">
