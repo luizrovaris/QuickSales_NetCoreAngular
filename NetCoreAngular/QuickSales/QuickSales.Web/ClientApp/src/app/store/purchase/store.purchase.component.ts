@@ -51,4 +51,8 @@ export class StorePurchaseComponent implements OnInit {
   public updateTotalPrice() {
     this.total = this.products.reduce((qt, product) => qt + product.price, 0);
   }
+
+  public purchaseOrder() {
+
+  }
 }
