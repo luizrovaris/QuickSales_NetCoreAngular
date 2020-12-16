@@ -5,7 +5,7 @@
         <a class="card card-link shadow-sm p-3 mb-5 bg-white rounded" (click)="openProductDetail(p)">
           <img class="card-img-top card-img-style" src="../../../../../files/{{p.file}}" />
           <div class="card-body d-flex flex-column">
-            <h6 class="card-title">{{p.name}}</h6>
+            <h6 class="card-title">{{p.name | truncate: 35}}</h6>
           </div>
           <div class="card-footer">
             <p class="h5 card-text align-self-end">$ {{p.price | number:'1.2-2'}}</p>
