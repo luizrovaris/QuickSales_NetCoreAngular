@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var PurchaseOrder = /** @class */ (function () {
     function PurchaseOrder() {
+        this.purchaseOrderItems = [];
     }
     return PurchaseOrder;
 }());

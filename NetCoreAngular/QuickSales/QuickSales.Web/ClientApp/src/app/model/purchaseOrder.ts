@@ -1,3 +1,5 @@
+import { PurchaseOrderItem } from "./purchaseOrderItem";
+
 export class PurchaseOrder {
   public id: number;
   public purchaseOrderDate: Date;
@@ -8,4 +10,9 @@ export class PurchaseOrder {
   public address: string;
   public addressNumber: string;
   public paymentMethodId: number;
+  public purchaseOrderItems: PurchaseOrderItem[];
+
+  constructor() {
+    this.purchaseOrderItems = [];
+  }
 }
