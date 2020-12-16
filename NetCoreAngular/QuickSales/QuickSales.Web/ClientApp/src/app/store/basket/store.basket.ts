@@ -36,4 +36,8 @@ export class StoreBasket {
       localStorage.setItem("productsLocalStorage", JSON.stringify(this.products.filter(p => p.id != product.id)));
     }
   }
+
+  public isBasketEmpty() : boolean {
+    return this.getProducts().length < 1;
+  }
 }

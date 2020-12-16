@@ -32,6 +32,11 @@
               <li class="dropdown-item" role="menu" [routerLink]="['/logout']" (click)="logout()">Logout</li>
             </ul>
           </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="hasAuthenticatedUser() && !isBasketEmpty()">
+            <a class="nav-link text-dark" [routerLink]="['/store-purchase']">
+              <i class="fa fa-lg fa-shopping-cart"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
