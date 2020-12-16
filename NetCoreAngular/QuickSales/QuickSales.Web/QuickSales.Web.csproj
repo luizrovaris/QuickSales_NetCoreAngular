@@ -33,6 +33,7 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\authorization\route.guards.ts" />
     <None Remove="ClientApp\src\app\model\product.ts" />
+    <None Remove="ClientApp\src\app\model\purchaseOrder.ts" />
     <None Remove="ClientApp\src\app\model\user.ts" />
     <None Remove="ClientApp\src\app\product\product.component.ts" />
     <None Remove="ClientApp\src\app\product\search\product.search.component.ts" />
@@ -53,6 +54,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\authorization\route.guards.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\model\product.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\purchaseOrder.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\model\user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\product\product.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\product\search\product.search.component.ts" />
