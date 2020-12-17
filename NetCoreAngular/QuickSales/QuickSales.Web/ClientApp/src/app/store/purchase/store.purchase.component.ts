@@ -60,7 +60,11 @@ export class StorePurchaseComponent implements OnInit {
   public purchaseOrder() {
     this.purchaseOrderService.savePurchaseOrder(this.createPurchaseOrder()).subscribe(
       purchaseOrderNumber => {
+        sessionStorage.setItem("purchaseOrderId", purchaseOrderNumber.toString());
+        this.products = [];
+        this.basket.cleanBasket();
 
+        this.router.navigate(['purchase-order-finished']);
       }, e => {
         console.log(e.error);
       }
