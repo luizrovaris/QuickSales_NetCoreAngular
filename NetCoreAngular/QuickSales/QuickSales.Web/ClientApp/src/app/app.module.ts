@@ -20,6 +20,7 @@ import { StoreSearchComponent } from './store/search/store.search.component';
 import { StoreProductComponent } from './store/product/store.product.component';
 import { StorePurchaseComponent } from './store/purchase/store.purchase.component';
 import { PurchaseOrderService } from './services/purchase-order/purchase-order.service';
+import { StorePurchaseCompletedComponent } from './store/purchase/completed/store.purchase.completed.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PurchaseOrderService } from './services/purchase-order/purchase-order.s
     ProductSearchComponent,
     StoreSearchComponent,
     StoreProductComponent,
-    StorePurchaseComponent
+    StorePurchaseComponent,
+    StorePurchaseCompletedComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,7 +49,8 @@ import { PurchaseOrderService } from './services/purchase-order/purchase-order.s
       { path: 'register-user', component: RegisterUserComponent },
       { path: 'product-search', component: ProductSearchComponent, canActivate: [RouteGuards] },
       { path: 'store-product', component: StoreProductComponent },
-      { path: 'store-purchase', component: StorePurchaseComponent, canActivate: [RouteGuards] }
+      { path: 'store-purchase', component: StorePurchaseComponent, canActivate: [RouteGuards] },
+      { path: 'purchase-completed', component: StorePurchaseCompletedComponent, canActivate: [RouteGuards]}
     ])
   ],
   providers: [UserService, ProductService, PurchaseOrderService],
