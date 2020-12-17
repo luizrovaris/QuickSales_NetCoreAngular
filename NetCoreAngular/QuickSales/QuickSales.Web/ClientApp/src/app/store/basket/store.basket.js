@@ -29,6 +29,9 @@ var StoreBasket = /** @class */ (function () {
             localStorage.setItem("productsLocalStorage", JSON.stringify(this.products.filter(function (p) { return p.id != product.id; })));
         }
     };
+    StoreBasket.prototype.cleanBasket = function () {
+        localStorage.setItem("productsLocalStorage", "");
+    };
     StoreBasket.prototype.isBasketEmpty = function () {
         return this.getProducts().length < 1;
     };

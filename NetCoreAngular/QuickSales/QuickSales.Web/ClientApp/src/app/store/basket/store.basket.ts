@@ -37,6 +37,10 @@ export class StoreBasket {
     }
   }
 
+  public cleanBasket() {
+    localStorage.setItem("productsLocalStorage", "");
+  }
+
   public isBasketEmpty() : boolean {
     return this.getProducts().length < 1;
   }
