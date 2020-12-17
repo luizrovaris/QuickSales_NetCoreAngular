@@ -18,6 +18,6 @@ export class PurchaseOrderService {
   }
 
   public savePurchaseOrder(purchaseOrder: PurchaseOrder): Observable<number> {
-    return this.http.post<number>(this.baseUrl + "api/purchaseorder", JSON.stringify(purchaseOrder), , { headers: this.header });
+    return this.http.post<number>(this.baseUrl + "api/purchaseorder", JSON.stringify(purchaseOrder), { headers: this.header });
   }
 }

@@ -1,0 +1,5 @@
+<div *ngIf="purchaseOrderId" class="alert alert-success">
+  <p class="h4 alert-heading mb-4">Purchase completed successfully!</p>
+  <p>This is your order number:</p>
+  <p class="h3"><strong>{{purchaseOrderId | number: '3.0-0'}}</strong></p>
+</div>

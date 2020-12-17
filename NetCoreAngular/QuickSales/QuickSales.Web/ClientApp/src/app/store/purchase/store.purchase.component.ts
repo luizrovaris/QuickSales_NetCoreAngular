@@ -64,7 +64,7 @@ export class StorePurchaseComponent implements OnInit {
         this.products = [];
         this.basket.cleanBasket();
 
-        this.router.navigate(['purchase-order-finished']);
+        this.router.navigate(['purchase-completed']);
       }, e => {
         console.log(e.error);
       }
