@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { PurchaseOrder } from "../../model/purchaseOrder";
 import { UserService } from "../../services/user/user.service";
 import { PurchaseOrderItem } from "../../model/purchaseOrderItem";
+import { PurchaseOrderService } from "../../services/purchase-order/purchase-order.service";
 
 @Component({
   selector: "store-purchase",
@@ -16,7 +17,7 @@ export class StorePurchaseComponent implements OnInit {
   public products: Product[];
   public total: number;
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private userService: UserService, private purchaseOrderService: PurchaseOrderService) {
 
   }
   ngOnInit(): void {
@@ -57,7 +58,13 @@ export class StorePurchaseComponent implements OnInit {
   }
 
   public purchaseOrder() {
-    let purchaseOrder = this.createPurchaseOrder();
+    this.purchaseOrderService.savePurchaseOrder(this.createPurchaseOrder()).subscribe(
+      purchaseOrderNumber => {
+
+      }, e => {
+        console.log(e.error);
+      }
+    );
   }
 
   public createPurchaseOrder() : PurchaseOrder {

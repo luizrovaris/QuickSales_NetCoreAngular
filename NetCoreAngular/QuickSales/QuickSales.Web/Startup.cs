@@ -33,6 +33,7 @@ namespace QuickSales.Web
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IPurchaseOrderRepository, PurchaseOrderRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddControllersWithViews()
