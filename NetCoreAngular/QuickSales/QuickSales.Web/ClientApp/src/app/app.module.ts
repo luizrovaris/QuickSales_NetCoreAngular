@@ -19,6 +19,7 @@ import { ProductSearchComponent } from './product/search/product.search.componen
 import { StoreSearchComponent } from './store/search/store.search.component';
 import { StoreProductComponent } from './store/product/store.product.component';
 import { StorePurchaseComponent } from './store/purchase/store.purchase.component';
+import { PurchaseOrderService } from './services/purchase-order/purchase-order.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { StorePurchaseComponent } from './store/purchase/store.purchase.componen
       { path: 'store-purchase', component: StorePurchaseComponent, canActivate: [RouteGuards] }
     ])
   ],
-  providers: [UserService, ProductService],
+  providers: [UserService, ProductService, PurchaseOrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
