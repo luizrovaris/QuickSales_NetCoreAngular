@@ -81,14 +81,7 @@ namespace QuickSales.Web.Controllers
             try
             {
                 Product product = this.productRepository.GetEntityById(id);
-
-                if (!string.IsNullOrEmpty(product.File))
-                {
-                    if (System.IO.File.Exists(Path.Combine(this.webHostEnvironment.WebRootPath + "\\files\\", product.File)))
-                    {
-                        System.IO.File.Delete(Path.Combine(this.webHostEnvironment.WebRootPath + "\\files\\", product.File));
-                    }
-                }
+                this.RemoveProductImage(product.File);
 
                 this.productRepository.Delete(id);
                 result = Json(this.productRepository.GetAll());
@@ -99,6 +92,17 @@ namespace QuickSales.Web.Controllers
             }
 
             return result;
+        }
+
+        private void RemoveProductImage(string productFile)
+        {
+            if (!string.IsNullOrEmpty(productFile))
+            {
+                if (System.IO.File.Exists(Path.Combine(this.webHostEnvironment.WebRootPath + "\\files\\", productFile)))
+                {
+                    System.IO.File.Delete(Path.Combine(this.webHostEnvironment.WebRootPath + "\\files\\", productFile));
+                }
+            }
         }
 
         [HttpPost("file")]
