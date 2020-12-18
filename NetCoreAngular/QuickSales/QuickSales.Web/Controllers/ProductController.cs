@@ -39,7 +39,7 @@ namespace QuickSales.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]Product product)
+        public IActionResult Post([FromBody] Product product)
         {
             ActionResult result;
 
@@ -80,6 +80,16 @@ namespace QuickSales.Web.Controllers
 
             try
             {
+                Product product = this.productRepository.GetEntityById(id);
+
+                if (!string.IsNullOrEmpty(product.File))
+                {
+                    if (System.IO.File.Exists(Path.Combine(this.webHostEnvironment.WebRootPath + "\\files\\", product.File)))
+                    {
+                        System.IO.File.Delete(Path.Combine(this.webHostEnvironment.WebRootPath + "\\files\\", product.File));
+                    }
+                }
+
                 this.productRepository.Delete(id);
                 result = Json(this.productRepository.GetAll());
             }
