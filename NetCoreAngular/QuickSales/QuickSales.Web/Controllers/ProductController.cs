@@ -51,6 +51,13 @@ namespace QuickSales.Web.Controllers
                 {
                     if (product.Id > 0)
                     {
+                        Product currentProduct = this.productRepository.GetEntityById(product.Id);
+
+                        if (product.File != currentProduct.File)
+                        {
+                            this.RemoveProductImage(product.File);
+                        }
+
                         this.productRepository.Update(product);
                     }
                     else
